@@ -1,0 +1,32 @@
+#index {
+  background-image: url('../images/bg.jpg');
+  max-width: 100%;
+  max-height: 100%;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+}
+  a.button {
+    border: 1px solid #1aa3ff;
+    color: #ffffff;
+    text-decoration: none;
+    border-radius: 10px;
+    background: #1aa3ff;
+    display: inline-block;
+    margin-left: 38%;
+    padding-right: 10%;
+    padding-left: 10%;
+    padding-bottom: 1%;
+    padding-top: 1%;
+    margin-bottom: 3%;
+
+}
+
+#img {
+  display: block;
+  margin-left: auto;
+}
+#imge {
+  display: block;
+  margin-right: auto;
+}
