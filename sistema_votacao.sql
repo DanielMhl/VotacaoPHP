@@ -31,7 +31,7 @@ DROP TABLE IF EXISTS `votante`;
 CREATE TABLE IF NOT EXISTS `votante` (
   `id` smallint(5) UNSIGNED NOT NULL AUTO_INCREMENT,
   `nome` varchar(150) COLLATE utf8_unicode_ci NOT NULL,
-  `cpf` varchar (11)  NOT NULL,
+  `cpf` varchar (11)  NOT NULL unique,
   `idade` varchar (3)  NOT NULL,
   `voto` varchar(3)  NOT NULL,
   `data_registro` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,

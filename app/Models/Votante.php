@@ -66,7 +66,7 @@ class Votante
         return $this -> msg = $msg;
     }
     public function getErro()
-    {
+    { 
         return $this -> erro;
     }
     public function setErro($erro){
@@ -89,8 +89,13 @@ class Votante
         if (empty($this -> voto)){
             $this->erro["erro_voto"] = "Escolha um candidato!";
         }
-    }
+        if (empty($this->erro)){
 
+            if ($this->idade < 16) {
+                $this->msg = "Idade inválida!";
+        }                         
+    }
+    }
 
  }
 

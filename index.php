@@ -9,25 +9,26 @@ $votante = new Votante($_POST['nome'], $_POST['cpf'], $_POST['idade'], $_POST['v
     
 $votante->validarDados();
 
-/* if (empty($usuario->erro)) {
-    if ($usuario->getMsg() == "O CPF deve ser um número") {
+if (empty($votante->erro)) {
+    if ($votante->getMsg() == "O CPF deve ser um número") {
         $class = "alert-danger";
-    } elseif ($usuario->getMsg() == "Idade inválida!") {
+    } elseif ($votante->getMsg() == "Idade inválida!") {
         $class = "alert-danger";
-    } elseif ($usuario->getMsg() == "Escolha um candidato!") {
+    } elseif ($votante->getMsg() == "Escolha um candidato!") {
         $class = "alert-danger";
     } else {
         $class = "alert-danger";
     }
-*/
+}
     $votanteDao->createVotante($votante);
 
 
 }
+
 ?>
 
 <!DOCTYPE html>
-<html lang="pt-Br">
+<html lang="pt-br">
 <head>
 
     <meta charset="UTF-8">
@@ -40,13 +41,11 @@ $votante->validarDados();
 
 </head>
 
-<body class="bg-success p-2 bg-opacity-75" id="index">
-    
-    <div class="container border border-2 rounded-4 p-4 bg-white mb-5 animate__animated animate__fadeInLeft" style="max-width: 450px;">
-        
+<body>
+    <div class="container border border-2 rounded-4 p-4 bt-5 bg-white animate__animated animate__fadeInLeft" style="max-width: 450px;">
         <form method="post">
             <h1 class="mb-4 text-center">Votação</h1>
-            <div class="">
+            <div class="row">
                 <div class="mb-3 bs-success">
                     <label for="nome" class="form-label fw-semibold">Nome do eleitor: </label>
                     <input type="text" name="nome" class="form-control form-control-lg bg-dark bg-opacity-10" value="" required>
@@ -58,39 +57,32 @@ $votante->validarDados();
                 <div class="mb-3">
                     <label for="idade" class="form-label fw-semibold">Idade: </label>
                     <input type="text" name="idade" class="form-control form-control-lg bg-dark bg-opacity-10" value="" required>
-                </div>
-                <div>
-                    <div class="mb-3 ">
-                        <label for="gates">
-                        <img class="rounded-2" src="images/gates.PNG" alt="Bill Gates" style="width: 35%">
-                        <input type="radio" name="voto" id="gates" value="1111">Bill Gates
-                        </label>
-                    </div>
+                <div class="mt-4">
                     <div class="mb-3">
-                        <label for="zuck">
-                        <img class="rounded-2" src="images/zuck.PNG" alt="Mark Zuckerberg" style="width: 35%">
-                        <input  type="radio" name="voto" id="zuck" value="2222">Mark Zuckerberg
-                       </label>
+                        <label for="gates">
+                        <img class="rounded-2"  src="images/gates.PNG" alt="Gates" style="max-width:35% ;">
+                        <input type="radio" name="voto" id="gates" value="111"> Bill Gates
+                    </label>
                     </div>
-                    <div class="d-grid mt-3">
-                    <input type="submit" value="Votar" class="btn btn-primary btn-SL">
+                    <div>
+                    <label for="zuck" class="fw-5">
+                        <img class="rounded-2"  src="images/zuck.PNG" alt="Zuck" style="max-width:35% ;">
+                        <input type="radio" name="voto" id="zuck" value="222"> Mark Zuckerberg
+                    </label>
+                    </div>
+                    <div class="d-grid mt-4">
+                        <input type="submit" value="Votar" class="btn btn-primary btn-SL">
                     </div>
                 </div>
-                <?php if(isset($usuario) && empty($usuario->erro)){  ?>
-            <div class="alert text-center fs-4 <?php echo $class ?>" role="alert">
-                <span class="d-block fw-bold">IMC: <?php echo round($usuario->getErro()); ?></span>
-                <span><?php echo $usuario->getMsg();  ?></span>
-            </div>
-            <?php }?>
             </form>
         </div>
     </div>
-    <a class="button " href="relatorio.php" target="_blank" style="max-width:100% ;">Relátorio</a>
-
-
-
+    </div>
+    
+     <a class="button mb-3 text-center fs-5" href="relatorio.php" target="_blank" style="max-width:90% ;">Relátorio</a>
+                
+    <script src="js/bootstrap.bundle.min.js"></script>
     
 
-    <script src="js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

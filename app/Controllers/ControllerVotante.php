@@ -19,10 +19,12 @@ class ControllerVotante
     }
 
     public function readVotante(){
+        
         try{
             $queryVotante = "SELECT * FROM votante";
             $stmt = ConexaoDB::getConn()->prepare($queryVotante);
             $stmt->execute();
+
 
             if($stmt->rowCount()){
                 return $stmt->fetchAll(PDO::FETCH_ASSOC);
@@ -31,6 +33,16 @@ class ControllerVotante
             echo $e->getMessage();
         }
     }
+
 }
+
+// class Votos{
+//  public function resultadoVoto(){
+ //       $queryVoto = "SELECT * FROM votante";
+  //      $stmt = ConexaoDB::getConn()->prepare($queryVoto);
+   //     $stmt->execute();
+   // }
+
+// }
 
 ?>

@@ -3,19 +3,15 @@
 require_once('app/Models/Votante.php');
 require_once('app/Controllers/ControllerVotante.php');
 
-$votanteDao = new ControllerVotante();
-if(!empty($_POST['nome']) && !empty($_POST['cpf']) && !empty($_POST['idade'])  && !empty($_POST['voto'])){
-$votante = new Votante($_POST['nome'], $_POST['cpf'], $_POST['idade'], $_POST['voto']);
-    
-$votante->validarDados();
-$votanteDao->createVotante($votante);
-}
 
-?>
+$votanteDao = new ControllerVotante();
+//$result = new Votos();
+ 
+?> 
 
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -26,23 +22,31 @@ $votanteDao->createVotante($votante);
 
 </head>
 <body>
-   <div class=" container border border-2 rounded-4 p-4 bg-white mb-3 mt-3" style="max-width: 450px;">
-   <div class="row" >
+
+
+   <?php
+  //  $query = "SELECT COUNT(voto) AS total_votos FROM votante WHERE voto='111'";
+  //  $result=$conn->prepare($query);
+  //  $result->execute();
+    ?>
+
+   <div class=" container border border-2 rounded-4 p-4 bg-white mb-3 mt-3" style="max-width: 350px;">
+   <div class="row">
      <h2 class="mb-4 text-center">Contagem de votos</h2>
      <div class="col-sm">
-        <img class="rounded-2" src="images/gates.PNG" alt="Gates" style="max-width:100%;" id="gates">
+     
+        <img class="rounded-2" src="images/gates.PNG" alt="Gates" style="max-width:90%;" id="img">
+        <p class="text-center fs-5"><?php // if($result->resultadoVoto()){ echo $queryVoto; } ?></p>
     </div>
     <div class="col-sm">
-    <p>300 X 250</p>
-    </div>
-    <div class="col-sm">
-        <img class="rounded-2" src="images/zuck.PNG" alt="Zuck" style="max-width:100%;" id="zuck">
+        <img class="rounded-2" src="images/zuck.PNG" alt="Zuck" style="max-width:90%;" id="imge">
+        <p class="text-center fs-5"><?php echo 'Teste' ?></p>
      </div>
      </div>
    </div>
    <?php if($votanteDao->readVotante()){ ?>
         <div class="container">
-            <h1>Relatório</h1>
+            <h1 class="text-white">Relatório</h1>
             <table class="table table-striped">
                 <thead class="table-dark">
                     <tr>
@@ -56,7 +60,7 @@ $votanteDao->createVotante($votante);
                 <tbody>
 
                     <?php foreach($votanteDao->readVotante() as $votante){ ?>
-                        <tr>
+                        <tr class="table-secondary">
                         <td> <?php echo $votante["nome"]; ?></td>
                         <td> <?php echo $votante["cpf"]; ?></td>
                         <td> <?php echo $votante["idade"]; ?></td>  
