@@ -7,14 +7,16 @@ body {
   background-size: cover;
 }
 
-
 #img {
   display: block;
   margin-left: auto;
 }
+
 #imge {
   display: block;
   margin-right: auto;
 }
 
-
+input[type=radio]{
+  transform:scale(1.5);
+}

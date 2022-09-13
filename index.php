@@ -42,7 +42,7 @@ if (empty($votante->erro)) {
 </head>
 
 <body>
-    <div class="container border border-2 rounded-4 p-4 bt-5 bg-white animate__animated animate__fadeInLeft" style="max-width: 450px;">
+    <div class="container border border-2 rounded-4 p-4 mt-2 bg-white animate__animated animate__fadeInLeft" style="max-width: 400px;">
         <form method="post">
             <h1 class="mb-4 text-center">Votação</h1>
             <div class="row">
@@ -58,29 +58,29 @@ if (empty($votante->erro)) {
                     <label for="idade" class="form-label fw-semibold">Idade: </label>
                     <input type="text" name="idade" class="form-control form-control-lg bg-dark bg-opacity-10" value="" required>
                 <div class="mt-4">
-                    <div class="mb-3">
-                        <label for="gates">
-                        <img class="rounded-2"  src="images/gates.PNG" alt="Gates" style="max-width:35% ;">
+                    <div class="mb-3 ">
+                        <label for="gates" class="fs-5 fw-semibold">
+                        <img class="rounded-2"  src="images/gates.PNG" alt="Gates" style="max-width:31% ;">
                         <input type="radio" name="voto" id="gates" value="111"> Bill Gates
                     </label>
                     </div>
                     <div>
-                    <label for="zuck" class="fw-5">
-                        <img class="rounded-2"  src="images/zuck.PNG" alt="Zuck" style="max-width:35% ;">
+                    <label for="zuck" class="fs-5 fw-semibold">
+                        <img class="rounded-2"  src="images/zuck.PNG" alt="Zuck" style="max-width:31% ;">
                         <input type="radio" name="voto" id="zuck" value="222"> Mark Zuckerberg
                     </label>
-                    </div>
+                    </div> 
                     <div class="d-grid mt-4">
-                        <input type="submit" value="Votar" class="btn btn-primary btn-SL">
+                        <input type="submit" value="Votar" class="btn btn-primary btn-lg">
                     </div>
                 </div>
             </form>
         </div>
     </div>
     </div>
-    
-     <a class="button mb-3 text-center fs-5" href="relatorio.php" target="_blank" style="max-width:90% ;">Relátorio</a>
-                
+    <div class="container text-center mb-3 mt-3 " style="max-width: 450px;">
+    <a class="btn btn-primary btn-lg rounded-2 mb-3" href="relatorio.php" target="_blank">Relátorio</a>
+    </div>
     <script src="js/bootstrap.bundle.min.js"></script>
     
 

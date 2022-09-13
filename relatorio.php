@@ -5,7 +5,7 @@ require_once('app/Controllers/ControllerVotante.php');
 
 
 $votanteDao = new ControllerVotante();
-//$result = new Votos();
+$result = new Votos();
  
 ?> 
 
@@ -24,28 +24,22 @@ $votanteDao = new ControllerVotante();
 <body>
 
 
-   <?php
-  //  $query = "SELECT COUNT(voto) AS total_votos FROM votante WHERE voto='111'";
-  //  $result=$conn->prepare($query);
-  //  $result->execute();
-    ?>
-
    <div class=" container border border-2 rounded-4 p-4 bg-white mb-3 mt-3" style="max-width: 350px;">
    <div class="row">
      <h2 class="mb-4 text-center">Contagem de votos</h2>
      <div class="col-sm">
      
         <img class="rounded-2" src="images/gates.PNG" alt="Gates" style="max-width:90%;" id="img">
-        <p class="text-center fs-5"><?php // if($result->resultadoVoto()){ echo $queryVoto; } ?></p>
-    </div>
+        <p class="text-center fs-5"><?php print_r ($result->resultadoGates()) ?></p>
+</div>
     <div class="col-sm">
         <img class="rounded-2" src="images/zuck.PNG" alt="Zuck" style="max-width:90%;" id="imge">
-        <p class="text-center fs-5"><?php echo 'Teste' ?></p>
+        <p class="text-center fs-5"><?php  print_r ($result->resultadoZuck()) ?></p>
      </div>
      </div>
    </div>
    <?php if($votanteDao->readVotante()){ ?>
-        <div class="container">
+        <div class="container" style="max-width: 850;">
             <h1 class="text-white">Relatório</h1>
             <table class="table table-striped">
                 <thead class="table-dark">
@@ -65,7 +59,7 @@ $votanteDao = new ControllerVotante();
                         <td> <?php echo $votante["cpf"]; ?></td>
                         <td> <?php echo $votante["idade"]; ?></td>  
                         <td> <?php echo $votante["voto"]; ?></td>  
-                        <td> <?php echo date ('d/m/Y', strtotime($votante["data_registro"])); ?></td>
+                        <td> <?php echo date ('d/m/Y h:m:s', strtotime($votante["data_registro"])); ?></td>
                     <?php } ?>
                     </tr>
                 </tbody>
