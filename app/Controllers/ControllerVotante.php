@@ -39,11 +39,12 @@ class ControllerVotante
     class Votos{
         public function resultadoZuck(){
                 try{
-                    $queryVoto = "SELECT COUNT(voto) FROM votante WHERE voto='222'";
+                    $queryVoto = "SELECT count(voto) AS totalVotos FROM votante WHERE voto='222'";
                     $stmt = ConexaoDB::getConn()->prepare($queryVoto);
                     $stmt->execute();
                     if($stmt->rowCount()){
-                        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+                        $result = $stmt->fetch(PDO::FETCH_ASSOC);
+                        return $result["totalVotos"];
                     }
                 }catch(PDOException $e){
             echo $e->getMessage();
@@ -51,11 +52,12 @@ class ControllerVotante
         }   
         public function resultadoGates(){
             try{
-                $queryVoto = "SELECT COUNT(voto) FROM votante WHERE voto='111'";
+                $queryVoto = "SELECT COUNT(voto) AS totalVotos FROM votante WHERE voto='111'";
                 $stmt = ConexaoDB::getConn()->prepare($queryVoto);
                 $stmt->execute();
                 if($stmt->rowCount()){
-                    return $stmt->fetchAll(PDO::FETCH_ASSOC);
+                    $result = $stmt->fetch(PDO::FETCH_ASSOC);
+                    return $result["totalVotos"];
                 }
             }catch(PDOException $e){
         echo $e->getMessage();

@@ -9,21 +9,31 @@ $votante = new Votante($_POST['nome'], $_POST['cpf'], $_POST['idade'], $_POST['v
     
 $votante->validarDados();
 
-if (empty($votante->erro)) {
-    if ($votante->getMsg() == "O CPF deve ser um número") {
-        $class = "alert-danger";
-    } elseif ($votante->getMsg() == "Idade inválida!") {
-        $class = "alert-danger";
-    } elseif ($votante->getMsg() == "Escolha um candidato!") {
-        $class = "alert-danger";
-    } else {
-        $class = "alert-danger";
-    }
+
+/* 
+if(isset($_POST['nome'])){
+$nome=$_POST['nome'];
 }
+
+if(isset($_POST['cpf'])){
+$cpf=$_POST['cpf'];
+}
+
+if(empty($nome)) {
+    $msg = '<span class="error"> O nome não foi inserido corretamente</span>';
+} else if(!is_numeric($cpf)) {
+    $msg = '<span class="error"> O CPF deve ser numérico!</span>';
+} else if(is_numeric($nome)) {
+    $msg = '<span class="error"> O Nome não pode ser numérico! </span>';
+} else {
+    Success 
+} 
+*/
     $votanteDao->createVotante($votante);
 
-
 }
+
+
 
 ?>
 
@@ -43,8 +53,9 @@ if (empty($votante->erro)) {
 
 <body>
     <div class="container border border-2 rounded-4 p-4 mt-2 bg-white animate__animated animate__fadeInLeft" style="max-width: 400px;">
-        <form method="post">
+        <form method="post" id="votacao">
             <h1 class="mb-4 text-center">Votação</h1>
+            <?php   // echo $msg; ?>
             <div class="row">
                 <div class="mb-3 bs-success">
                     <label for="nome" class="form-label fw-semibold">Nome do eleitor: </label>
@@ -74,6 +85,11 @@ if (empty($votante->erro)) {
                         <input type="submit" value="Votar" class="btn btn-primary btn-lg">
                     </div>
                 </div>
+                <?php if(isset($votante) && empty($votante->erro)){  ?>
+            <div class="alert text-center fs-4 <?php echo $class ?>" role="alert">
+            <span class="d-block fw-bold">Erro: <?php print_r( $votante->getErro()); ?></span>
+            </div>
+            <?php }?>
             </form>
         </div>
     </div>
@@ -81,7 +97,9 @@ if (empty($votante->erro)) {
     <div class="container text-center mb-3 mt-3 " style="max-width: 450px;">
     <a class="btn btn-primary btn-lg rounded-2 mb-3" href="relatorio.php" target="_blank">Relátorio</a>
     </div>
-    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="js/bootstrap.bundle.min.js"> 
+    $("#votacao")[0].reset();
+    </script>
     
 
 </body>

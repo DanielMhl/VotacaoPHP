@@ -34,7 +34,7 @@ $result = new Votos();
 </div>
     <div class="col-sm">
         <img class="rounded-2" src="images/zuck.PNG" alt="Zuck" style="max-width:90%;" id="imge">
-        <p class="text-center fs-5"><?php  print_r ($result->resultadoZuck()) ?></p>
+        <p class="text-center fs-5"><?php echo $result->resultadoZuck(); ?></p>
      </div>
      </div>
    </div>

@@ -89,12 +89,7 @@ class Votante
         if (empty($this -> voto)){
             $this->erro["erro_voto"] = "Escolha um candidato!";
         }
-        if (empty($this->erro)){
-
-            if ($this->idade < 16) {
-                $this->msg = "Idade inválida!";
-        }                         
-    }
+        
     }
 
  }
