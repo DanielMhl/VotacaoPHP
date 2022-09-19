@@ -81,19 +81,21 @@ class Votante
         $this->cpf = str_replace(".","", $this->cpf);
         $this->cpf = str_replace("-","", $this->cpf);
         if(!is_numeric($this->cpf)){
-            $this->erro["erro_cpf"] = "O CPF deve ser um número";
+            $this->erro["erro_cpf"] = "CPF Inválido!";
+            $this->msg = "CPF Inválido!";
         }
-        if($this->idade <16 || $this-> idade > 100 || !is_numeric($this->idade)){
-            $this->erro["erro_idade"] = "Idade inválida!";
+        if($this->idade < 16 || $this-> idade > 100 || !is_numeric($this->idade)){
+            $this->erro["erro_idade"] = "Idade Inválida!";
+            $this->msg = "Idade Inválida!";
         }
         if (empty($this -> voto)){
             $this->erro["erro_voto"] = "Escolha um candidato!";
         }
-        
+        else if(empty($this->erro)){
+            $this->msg = "Votação realizda!";
+        }
     }
-
  }
-
     
 
 

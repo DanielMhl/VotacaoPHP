@@ -28,9 +28,8 @@ $result = new Votos();
    <div class="row">
      <h2 class="mb-4 text-center">Contagem de votos</h2>
      <div class="col-sm">
-     
         <img class="rounded-2" src="images/gates.PNG" alt="Gates" style="max-width:90%;" id="img">
-        <p class="text-center fs-5"><?php print_r ($result->resultadoGates()) ?></p>
+        <p class="text-center fs-5"><?php echo $result->resultadoGates(); ?></p>
 </div>
     <div class="col-sm">
         <img class="rounded-2" src="images/zuck.PNG" alt="Zuck" style="max-width:90%;" id="imge">
