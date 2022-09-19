@@ -9,16 +9,14 @@ if (!empty($_POST['nome']) && !empty($_POST['cpf']) && !empty($_POST['idade'])  
     $votante->validarDados();
 
     if (empty($votante->erro)) {
-        if ($votante->getMsg() == "Idade Inválida!") {
-            $class = "alert-danger";
-        } elseif ($votante->getMsg() == "CPF Inválido!") {
-            $class = "alert-danger";
-        } else {
-            $class = "alert-success";
-            $votanteDao->createVotante($votante);
-        }
+        $class = "alert-success";
+        $votanteDao->createVotante($votante);
+        
+    }else {
+        $class = "alert-danger";
     }
-}
+    
+}   
 
 ?>
 
@@ -58,23 +56,23 @@ if (!empty($_POST['nome']) && !empty($_POST['cpf']) && !empty($_POST['idade'])  
                     <div class="mt-4">
                         <div class="mb-3 ">
                             <label for="gates" class="fs-5 fw-semibold">
-                                <img class="rounded-2" src="images/gates.PNG" alt="Gates" style="max-width:31% ;">
-                                <input type="radio" name="voto" id="gates" value="111"> Bill Gates
+                                <img class="rounded-2" src="images/gates.PNG" alt="Gates" style="max-width:31%;">
+                                <input type="radio" name="voto" id="gates" value="111" required> Bill Gates
                             </label>
                         </div>
                         <div>
                             <label for="zuck" class="fs-5 fw-semibold">
-                                <img class="rounded-2" src="images/zuck.PNG" alt="Zuck" style="max-width:31% ;">
-                                <input type="radio" name="voto" id="zuck" value="222"> Mark Zuckerberg
+                                <img class="rounded-2" src="images/zuck.PNG" alt="Zuck" style="max-width:31%;">
+                                <input type="radio" name="voto" id="zuck" value="222" required> Mark Zuckerberg
                             </label>
                         </div>
                         <div class="d-grid mt-4">
-                            <input type="submit" value="Votar" class="btn btn-primary btn-lg">
+                            <input type="submit" value="Votar" class="btn btn-primary btn-lg mb-3">
                         </div>
                     </div>
                     <?php if (isset($votante) && empty($votante->erro)) {  ?>
                         <div class="alert text-center fs-4 <?php echo $class ?>" role="alert">
-                            <span class="d-block fw-bold"><?php echo $votante->getMsg(); ?></span>
+                            <span><?php echo $votante->getMsg(); ?></span>
                         </div>
                     <?php } ?>
         </form>

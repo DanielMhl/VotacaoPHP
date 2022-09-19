@@ -92,11 +92,7 @@ class Votante
             $this->erro["erro_voto"] = "Escolha um candidato!";
         }
         else if(empty($this->erro)){
-            $this->msg = "Votação realizda!";
+            $this->msg = "Votação realizada!";
         }
     }
  }
-    
-
-
-?>
