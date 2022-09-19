@@ -1,4 +1,3 @@
-
 <?php
 require_once('app/Models/Votante.php');
 require_once('app/Controllers/ControllerVotante.php');
@@ -32,8 +31,6 @@ if(empty($nome)) {
     $votanteDao->createVotante($votante);
 
 }
-
-
 
 ?>
 
