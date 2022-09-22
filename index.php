@@ -39,8 +39,6 @@ if (!empty($_POST['nome']) && !empty($_POST['cpf']) && !empty($_POST['idade'])  
     <div class="container border border-2 rounded-4 p-4 mt-2 bg-white animate__animated animate__fadeInLeft" style="max-width: 400px;">
         <form method="post" id="votacao">
             <h1 class="mb-4 text-center">Votação</h1>
-            <?php   // echo $msg; 
-            ?>
             <div class="row">
                 <div class="mb-3 bs-success">
                     <label for="nome" class="form-label fw-semibold">Nome do eleitor: </label>
@@ -83,10 +81,10 @@ if (!empty($_POST['nome']) && !empty($_POST['cpf']) && !empty($_POST['idade'])  
         <a class="btn btn-primary btn-lg rounded-2 mb-3" href="relatorio.php" target="_blank">Relátorio</a>
     </div>
     <script src="js/bootstrap.bundle.min.js">
-        if (window.history.replaceState) {
+       if (window.history.replaceState) {
             window.history.replaceState(null, null, window.location.href);
         }
-        $("#votacao")[0].reset();
+     
     </script>
 
 
