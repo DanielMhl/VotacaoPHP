@@ -75,8 +75,10 @@ class Votante
     
 
     public function validarDados(){
-        if (empty($this -> nome)){
-            $this->erro["erro_nome"] = "O campo nome está vazio!";
+        if (is_numeric($this -> nome)){
+            $this->erro["erro_nome"] = "Nome Inválido!";
+            $this->msg = "Nome Inválido!";
+
         }
         $this->cpf = str_replace(".","", $this->cpf);
         $this->cpf = str_replace("-","", $this->cpf);
